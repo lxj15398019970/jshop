@@ -22,28 +22,29 @@ import javax.annotation.Resource;
  */
 @Service
 public class NewsServiceImpl extends ServersManager<News, NewsDao> implements
-		NewsService {
-    @Autowired
+        NewsService {
+    @Resource(name = "newsDaoFront")
     @Override
     public void setDao(NewsDao newsDao) {
         this.dao = newsDao;
     }
-	/**
-	 * @param e
-	 */
-	public List<News> selecIndexNews(News e) {
-		return dao.selecIndexNews(e);
-	}
 
-	@Override
-	public List<String> selectAllMd5() {
-		// TODO Auto-generated method stub
-		return dao.selectAllMd5();
-	}
+    /**
+     * @param e
+     */
+    public List<News> selecIndexNews(News e) {
+        return dao.selecIndexNews(e);
+    }
 
-	@Override
-	public void updateInBlackList(String[] ids) {
-		// TODO Auto-generated method stub
+    @Override
+    public List<String> selectAllMd5() {
+        // TODO Auto-generated method stub
+        return dao.selectAllMd5();
+    }
+
+    @Override
+    public void updateInBlackList(String[] ids) {
+        // TODO Auto-generated method stub
 //		if(ids==null || ids.length==0){
 //			return;
 //		}
@@ -52,10 +53,10 @@ public class NewsServiceImpl extends ServersManager<News, NewsDao> implements
 //			String e = ids[i];
 //			newsDao.updateInBlackList(e);
 //		}
-	}
+    }
 
-	@Override
-	public void sync(String[] ids, int status) {
+    @Override
+    public void sync(String[] ids, int status) {
 //		if(ids==null || ids.length==0){
 //			return;
 //		}
@@ -66,16 +67,16 @@ public class NewsServiceImpl extends ServersManager<News, NewsDao> implements
 ////			news.setStatus(status);
 //			newsDao.sync(news);
 //		}
-	}
+    }
 
-	@Override
-	public List<News> selectNoticeList(News news) {
-		return dao.selectNoticeList(news);
-	}
+    @Override
+    public List<News> selectNoticeList(News news) {
+        return dao.selectNoticeList(news);
+    }
 
-	@Override
-	public News selectSimpleOne(News news) {
-		return dao.selectSimpleOne(news);
-	}
+    @Override
+    public News selectSimpleOne(News news) {
+        return dao.selectSimpleOne(news);
+    }
 
 }
